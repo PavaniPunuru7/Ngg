@@ -1,0 +1,319 @@
+<html>
+<head>
+    <script src="https://kit.fontawesome.com/e94726741a.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <style>
+        /* Reduced logo size */
+        .logoImage {
+            height: 100px;
+            width: 250px;
+        }
+
+        /* Navbar adjustments */
+        .navBar {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            padding: 5px 20px;
+        }
+
+        /* Navbar links with reduced spacing */
+        .nav_section {
+            display: flex;
+            gap: 15px;
+        }
+
+        /* Default nav item style */
+        .nav_section a {
+            color: grey;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 5px 8px;
+            transition: color 0.3s, text-decoration 0.3s;
+        }
+
+        /* Active nav item style */
+        .nav_section a.active {
+            color: black;
+            border-bottom: 2px solid green;
+        }
+
+        /* Hover effect */
+        .nav_section a:hover {
+            color: black;
+        }
+
+        /* Carousel image adjustments */
+        .carousel-item {
+            height: 75vh;
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .carousel1{
+            background-image:url("Home_bgImage1.jpg");
+            background-size:cover;
+            height:80vh;
+        }
+        .carousel2{
+            background-image:url("Home_bgImage2.jpg");
+            background-size:cover;
+            height:75vh;
+        }
+        .carousel3{
+            background-image:url("Home_bgImage3.jpg");
+            background-size:cover;
+            height:75vh;
+        }
+        /* Custom Previous and Next buttons */
+/* Hide navigation buttons by default */
+.carousel-control-prev,
+.carousel-control-next {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Show buttons when hovering over the carousel */
+.carousel:hover .carousel-control-prev,
+.carousel:hover .carousel-control-next {
+    opacity: 1;
+}
+
+/* Smaller square buttons */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: transparent;
+    border: 2px solid black;
+    width: 35px;  /* Reduced size */
+    height: 35px; /* Reduced size */
+    display: flex;
+    align-items: center;
+    
+    font-size: 10px; /* Reduced arrow size */
+    color: white;
+    border-radius: 5px;
+}
+
+/* Remove default Bootstrap icons */
+.carousel-control-prev-icon::after,
+.carousel-control-next-icon::after {
+    content: '';
+    display: none;
+}
+
+/* Custom arrow symbols */
+.carousel-control-prev-icon {
+    content: '<';
+}
+
+.carousel-control-next-icon {
+    content: '>';
+}
+
+/* Hover effect for buttons */
+.carousel-control-prev:hover .carousel-control-prev-icon,
+.carousel-control-next:hover .carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+.carousel-control-prev,
+.carousel-control-next {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    top: 50%;  /* Vertically center */
+    transform: translateY(-50%);  /* Adjust for perfect centering */
+}
+
+
+.side-lines {
+    top: 50%;
+    position: fixed;  /* Changed from absolute to fixed */
+    transform: translateY(-50%);
+    right: 5%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 999;  /* Ensures it stays above other elements */
+}
+
+/* Style for the lines */
+.line {
+    width: 50px;
+    height: 3px;
+    background-color: darkgreen;
+    transition: height 0.3s ease;
+    margin: 5px;
+    position: relative;
+    cursor: pointer;
+}
+
+/* Thicker line on hover */
+.line:hover {
+    height: 4px;
+}
+
+/* Hidden nav item text */
+/* Hidden nav item text */
+.line::after {
+    content: attr(data-text);
+    position: absolute;
+    top: -40px;  /* Start higher for the slide effect */
+    left: 50%;
+    transform: translateX(-50%);
+    color: grey;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, top 0.3s ease;
+    white-space: nowrap;
+    font-weight: bold;
+}
+
+/* Slide down text on hover */
+.line:hover::after {
+    opacity: 1;
+    visibility: visible;
+    top: -25px;  /* Slides down smoothly */
+}
+
+
+/* Container for the horizontal lines */
+/*uced body padding to align content */
+        body {
+            padding-top: 100px;
+            margin: 0;
+        }
+        .contactbg{
+            background-color:rgb(67, 113, 67);
+            color:white;
+            padding:40px;
+        }
+        .contact_alignment{
+            display:flex;
+            flex-direction:row;
+            justify-content:space-around;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div id="home">
+
+        <div class="navBar">
+            <div>
+                <img src="ngg_logo.jpg" class="logoImage" />
+            </div>
+            <div class="nav_section">
+                <a href="#home" class="active">Home</a>
+                <a href="#about">About Us</a>
+                <a href="#services">Services Offered</a>
+                <a href="#management">Top Management</a>
+                <a href="#career">Career</a>
+                <a href="#contact">Contact Us</a>
+            </div>
+        </div>
+
+        <!-- Carousel -->
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="3000">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="carousel1">
+                        <div class="side-lines">
+                            <a href="#home" class="line" data-text="Home"></a>
+                            <a href="#about"class="line" data-text="About Us"></a>
+                            <a href="#services" class="line" data-text="Services Offered"></a>
+                            <a href="#management"class="line" data-text="Top Management"></a>
+                            <a href="#career" class="line" data-text="Career"></a>
+                            <a href="#contact" class="line" data-text="Contact Us"></a>
+                        </div>
+                </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="carousel2">
+                        <div class="side-lines">
+                            <a href="#home" class="line" data-text="Home"></a>
+                            <a href="#about"class="line" data-text="About Us"></a>
+                            <a href="#services" class="line" data-text="Services Offered"></a>
+                            <a href="#management"class="line" data-text="Top Management"></a>
+                            <a href="#career" class="line" data-text="Career"></a>
+                            <a href="#contact" class="line" data-text="Contact Us"></a>
+                        </div>
+                    </div>
+                   
+                </div>
+                
+            <!-- Navigation buttons -->
+<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon carousel-control-prev" aria-hidden="true">&lt;</span>
+    <span class="sr-only">Previous</span>
+</a>
+<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon carousel-control-next" aria-hidden="true">&gt;</span>
+    <span class="sr-only">Next</span>
+</a>
+        </div>
+    </div>
+</div>
+   
+        <div class="contactbg" id="contact">
+            <div class="contact_alignment">
+            <div>
+         <h1>Contact Us</h1>
+         <h4>NGG</h4>
+         <h4> 3rd Floor, Nidhi Bhavan,</h4>
+         <h4>  IT Park, Behind APIIC building,</h4>
+         <h4>  Mangalagiri, Guntur District,</h4>
+         <h4>  Andhra Pradesh-522503</h4> 
+         <h4>  E: info[at]ngg[dot]in</h4>
+        </div>
+        <div>
+            <div style="height:550px;">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d30539.090565928742!2d81.792079397807!3d16.90622548104384!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1skadiyam%20plant%20nursery!5e0!3m2!1sen!2sin!4v1736949162003!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                
+            </div>    
+        </div>
+        
+    </div>
+    <h5 style="text-align:center">Best Viewed in all Browsers. NGG <i class="fa-regular fa-copyright"></i>  2024</h5>
+    </div>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Active link switching logic
+        const navLinks = document.querySelectorAll('.nav_section a');
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', function () {
+                navLinks.forEach(nav => nav.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+        // Prevent carousel slide when clicking on .line
+document.querySelectorAll('.line').forEach(line => {
+    line.addEventListener('click', function (e) {
+        e.stopPropagation();
+    });
+});
+
+    </script>
+
+</body>
+</html>
+
