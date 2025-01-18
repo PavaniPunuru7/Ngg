@@ -68,3 +68,33 @@ document.addEventListener('DOMContentLoaded', function () {
 
     setActiveLink();
 });
+
+//services offered
+const slider = document.querySelector(".slider");
+    const cards = Array.from(document.querySelectorAll(".card"));
+    const cardWidth = cards[0].offsetWidth + 16; // Card width + gap
+    let currentIndex = 0;
+
+    
+    cards.forEach(card => {
+        const clone = card.cloneNode(true);
+        slider.appendChild(clone);
+    });
+    function slideCards() {
+        currentIndex++;
+
+        slider.style.transition = "transform 0.5s ease-in-out";
+        slider.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+
+        // Reset to the start when the last card slides
+        if (currentIndex === cards.length) {
+            setTimeout(() => {
+                slider.style.transition = "none";
+                slider.style.transform = "translateX(0)";
+                currentIndex = 0;
+            }, 500); // Wait for the sliding transition to complete
+        }
+    }
+
+    // Slide cards every 3 seconds
+    setInterval(slideCards, 3000);
