@@ -1,23 +1,4 @@
- // Active link switching logic
- const navLinks = document.querySelectorAll('.nav_section a');
-
- navLinks.forEach(link => {
-     link.addEventListener('click', function () {
-         navLinks.forEach(nav => nav.classList.remove('active'));
-         this.classList.add('active');
-     });
- });
- // Prevent carousel slide when clicking on .line
-document.querySelectorAll('.line').forEach(line => {
-    line.addEventListener('click', function (e) {
-        e.stopPropagation();
-    });
-});
-
-
-
-
-
+//cursor
 var cursor = $(".cursor"),
 follower = $(".cursor-follower");
 
@@ -51,4 +32,39 @@ TweenMax.set(cursor, {
 $(document).on("mousemove",function(e){
 mouseX = e.pageX;
 mouseY = e.pageY;
+});
+
+
+
+//horizontal lines
+document.addEventListener('DOMContentLoaded', function () {
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('section');
+    const offset = 100; 
+
+    function setActiveLink() {
+        let currentSection = ''; 
+        const scrollPos = window.scrollY + offset; 
+
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.offsetHeight; 
+            
+            if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+                currentSection = section.getAttribute('id'); 
+            }
+        });
+
+        navLinks.forEach(link => {
+            if (link.getAttribute('href').includes(currentSection)) {
+                link.classList.add('active'); 
+            } else {
+                link.classList.remove('active'); 
+            }
+        });
+    }
+
+    window.addEventListener('scroll', setActiveLink);
+
+    setActiveLink();
 });

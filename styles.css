@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+  }
+
 /* Reduced logo size */
 .logoImage {
     height: 100px;
@@ -34,16 +38,26 @@
     transition: color 0.3s, text-decoration 0.3s;
 }
 
-/* Active nav item style */
-.nav_section a.active {
-    color: black;
-    border-bottom: 2px solid green;
+.nav-link {
+    position: relative; 
 }
 
-/* Hover effect */
-.nav_section a:hover {
+.nav-link.active {
     color: black;
 }
+
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px; 
+    left: 0;
+    width: 100%;
+    height: 3px; 
+    background-color: green;
+  }
+  
+  
+
 
 /* Carousel image adjustments */
 .carousel-item {
@@ -130,7 +144,7 @@ transform: translateY(-50%);  /* Adjust for perfect centering */
 
 
 
-
+/*Side lines*/
 #cd-vertical-nav {
     position: fixed;
     right: 50px;
@@ -150,6 +164,7 @@ transform: translateY(-50%);  /* Adjust for perfect centering */
     margin: 20px 0;
     text-align: right;
     position: relative;
+    transition: all 0.4s ease;
   }
   
   #cd-vertical-nav a {
@@ -158,9 +173,9 @@ transform: translateY(-50%);  /* Adjust for perfect centering */
     text-decoration: none;
     color: black;
     position: relative;
-    transition: color 0.3s ease;
+    transition: color 0.4s ease;
     padding: 5px 15px;
-    width: max-content; /* Ensures hoverable area includes both line and text */
+    width: max-content; 
   }
   
   #cd-vertical-nav .cd-dot {
@@ -169,7 +184,7 @@ transform: translateY(-50%);  /* Adjust for perfect centering */
     background-color: darkgreen;
     border-radius: 0;
     position: relative;
-    transition: width 0.3s ease, height 0.3s ease, transform 0.3s ease;
+    transition: width 0.4s ease, height 0.4s ease, transform 0.4s ease, background-color 0.4s ease;
   }
   
   #cd-vertical-nav .cd-label {
@@ -180,7 +195,7 @@ transform: translateY(-50%);  /* Adjust for perfect centering */
     opacity: 0;
     position: absolute;
     right: 10px; 
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    transition: opacity 0.4s ease, transform 0.4s ease;
     transform: translateX(10px);
   }
   
@@ -229,6 +244,7 @@ transform: translateY(-50%);  /* Adjust for perfect centering */
 body {
     padding-top: 100px;
     margin: 0;
+    transition: all 0.4s ease; /* Transition for all properties */
 }
 .contactbg{
     background-color:rgb(67, 113, 67);
@@ -244,7 +260,7 @@ body {
 
 
 
-
+/*Cursor*/
 .cursor {
     position: absolute;
     background: #fff;
