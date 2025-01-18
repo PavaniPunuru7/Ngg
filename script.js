@@ -1,3 +1,23 @@
+ // Active link switching logic
+ const navLinks = document.querySelectorAll('.nav_section a');
+
+ navLinks.forEach(link => {
+     link.addEventListener('click', function () {
+         navLinks.forEach(nav => nav.classList.remove('active'));
+         this.classList.add('active');
+     });
+ });
+ // Prevent carousel slide when clicking on .line
+document.querySelectorAll('.line').forEach(line => {
+    line.addEventListener('click', function (e) {
+        e.stopPropagation();
+    });
+});
+
+
+
+
+
 var cursor = $(".cursor"),
 follower = $(".cursor-follower");
 

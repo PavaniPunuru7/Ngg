@@ -1,3 +1,250 @@
+/* Reduced logo size */
+.logoImage {
+    height: 100px;
+    width: 250px;
+}
+
+/* Navbar adjustments */
+.navBar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    padding: 5px 20px;
+}
+
+/* Navbar links with reduced spacing */
+.nav_section {
+    display: flex;
+    gap: 15px;
+}
+
+/* Default nav item style */
+.nav_section a {
+    color: grey;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 8px;
+    transition: color 0.3s, text-decoration 0.3s;
+}
+
+/* Active nav item style */
+.nav_section a.active {
+    color: black;
+    border-bottom: 2px solid green;
+}
+
+/* Hover effect */
+.nav_section a:hover {
+    color: black;
+}
+
+/* Carousel image adjustments */
+.carousel-item {
+    height: 75vh;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.carousel1{
+    background-image:url("Home_bgImage1.jpg");
+    background-size:cover;
+    height:80vh;
+}
+.carousel2{
+    background-image:url("Home_bgImage2.jpg");
+    background-size:cover;
+    height:75vh;
+}
+.carousel3{
+    background-image:url("Home_bgImage3.jpg");
+    background-size:cover;
+    height:75vh;
+}
+/* Custom Previous and Next buttons */
+/* Hide navigation buttons by default */
+.carousel-control-prev,
+.carousel-control-next {
+opacity: 0;
+transition: opacity 0.3s ease;
+}
+
+/* Show buttons when hovering over the carousel */
+.carousel:hover .carousel-control-prev,
+.carousel:hover .carousel-control-next {
+opacity: 1;
+}
+
+/* Smaller square buttons */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+background-color: transparent;
+border: 2px solid black;
+width: 35px;  /* Reduced size */
+height: 35px; /* Reduced size */
+display: flex;
+align-items: center;
+
+font-size: 10px; /* Reduced arrow size */
+color: white;
+border-radius: 5px;
+}
+
+/* Remove default Bootstrap icons */
+.carousel-control-prev-icon::after,
+.carousel-control-next-icon::after {
+content: '';
+display: none;
+}
+
+/* Custom arrow symbols */
+.carousel-control-prev-icon {
+content: '<';
+}
+
+.carousel-control-next-icon {
+content: '>';
+}
+
+/* Hover effect for buttons */
+.carousel-control-prev:hover .carousel-control-prev-icon,
+.carousel-control-next:hover .carousel-control-next-icon {
+background-color: rgba(0, 0, 0, 0.8);
+}
+.carousel-control-prev,
+.carousel-control-next {
+opacity: 0;
+transition: opacity 0.3s ease;
+top: 50%;  /* Vertically center */
+transform: translateY(-50%);  /* Adjust for perfect centering */
+}
+
+
+
+
+#cd-vertical-nav {
+    position: fixed;
+    right: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 9999;
+    list-style: none;
+  }
+  
+  #cd-vertical-nav ul {
+    padding: 0;
+    margin: 0;
+  }
+  
+  #cd-vertical-nav li {
+    list-style: none;
+    margin: 20px 0;
+    text-align: right;
+    position: relative;
+  }
+  
+  #cd-vertical-nav a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    position: relative;
+    transition: color 0.3s ease;
+    padding: 5px 15px;
+    width: max-content; /* Ensures hoverable area includes both line and text */
+  }
+  
+  #cd-vertical-nav .cd-dot {
+    width: 40px;
+    height: 1.8px;
+    background-color: darkgreen;
+    border-radius: 0;
+    position: relative;
+    transition: width 0.3s ease, height 0.3s ease, transform 0.3s ease;
+  }
+  
+  #cd-vertical-nav .cd-label {
+    font-size: 14px;
+    text-transform: uppercase;
+    color: black;
+    white-space: nowrap;
+    opacity: 0;
+    position: absolute;
+    right: 10px; 
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: translateX(10px);
+  }
+  
+  #cd-vertical-nav li:hover .cd-dot {
+    transform: scale(1.5);
+  }
+  
+  #cd-vertical-nav li:hover .cd-label {
+    opacity: 1;
+    transform: translateX(-10px);
+  }
+  
+  #cd-vertical-nav li:hover a {
+    color: darkgreen; 
+  }
+  
+  #cd-vertical-nav a .cd-label {
+    right: calc(100% + 0px);
+  }
+  
+  #cd-vertical-nav li {
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  #cd-vertical-nav a:hover,
+  #cd-vertical-nav li:hover {
+    cursor: pointer;
+  }
+  
+  @media only screen and (max-width: 600px) {
+    #cd-vertical-nav {
+      display: none;
+    }
+  }
+  
+
+
+
+
+
+/* Container for the horizontal lines */
+/*uced body padding to align content */
+body {
+    padding-top: 100px;
+    margin: 0;
+}
+.contactbg{
+    background-color:rgb(67, 113, 67);
+    color:white;
+    padding:40px;
+}
+.contact_alignment{
+    display:flex;
+    flex-direction:row;
+    justify-content:space-around;
+}
+
+
+
+
+
 .cursor {
     position: absolute;
     background: #fff;
