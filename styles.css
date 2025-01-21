@@ -352,8 +352,8 @@ body {
   
   .card {
     flex: 0 0 auto;
-    height: auto;
-    width: calc(100% / 4 - 20px); /* Adjusted width to fit four cards neatly */
+    height: 350px; /* Increased height */
+    width: calc(100% / 3 - 20px); /* Increased width, now there are 3 cards per row */
     list-style: none;
     background: white;
     border-radius: 8px;
@@ -361,30 +361,31 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    padding: 10px;
-    z-index: 4; /* Ensure cards are above the left-half */
+    padding: 20px; /* Adjust padding for larger card */
+    z-index: 4;
     position: relative;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for clarity */
-    margin-right: 10px; /* Space between cards */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    margin-right: 10px;
   }
-
+  
   .card .img {
     background: transparent;
     width: 100%;
-    height: 150px; /* Fixed height to maintain consistency */
-    margin-bottom: 15px;
+    height: 250px; /* Increased height for the image */
+    margin-bottom: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden; /* Crop overflowing parts of the image */
-    border-radius: 8px; /* Rounded corners for images */
+    overflow: hidden;
+    border-radius: 8px;
   }
-
+  
   .card .img img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ensure the image covers the container without distortion */
+    object-fit: cover;
   }
+  
 
   .card h2 {
     font-weight: bold;
