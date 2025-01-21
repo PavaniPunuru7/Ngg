@@ -303,8 +303,6 @@ body {
     opacity: 0.08;
   }
 
-
-
   * {
     margin: 0;
     padding: 0;
@@ -315,62 +313,47 @@ body {
     font-family: Arial, sans-serif;
     display: flex;
     flex-direction: column;
-    min-height: 100vh; 
+    min-height: 100vh; /* Ensure the page fills the viewport height */
   }
 
-  /* Main Container */
   .main-container {
     display: flex;
     flex: 1;
     width: 100%;
     position: relative;
+    overflow: hidden; /* Ensure content stays within bounds */
   }
 
-  /* Left Half */
-.left-half {
-  flex: 1; 
-  background-color: rgb(67, 113, 67);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2rem;
-  font-weight: bold;
-  position: relative;
-  margin-right:20px;
-}
-
-/* Right Half with Horizontal Slider */
-.right-half {
-  flex: 1.4; 
-  background-color: #e2d3d3;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  position: relative;
-  z-index: 3; 
-  margin-left: -50px;
-  padding: 90px 0px;
-}
-
-
-  .wrapper {
-    max-width: 1100px;
-    width: 100%;
+  .right-half {
+    flex: 1.4; /* Larger width for the right half */
+    background-color: #e2d3d3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     overflow: hidden;
     position: relative;
+    z-index: 3; /* Ensure it is above the left side */
+    margin-left: -150px; /* Increased negative margin for overlap */
+    padding: 90px 0px;
   }
 
-  .slider {
+  .left-half {
+    flex: 1; /* Set the width for the left half */
+    background-color: rgb(67, 113, 67);
     display: flex;
-    gap: 16px;
-    transition: transform 0.5s ease-in-out;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    position: relative;
+    font-weight: bold;
+    z-index: 1; /* Place it behind the cards */
+    overflow: visible; /* Allow overlap */
   }
-
-  .slider .card {
+  
+  .card {
     flex: 0 0 auto;
-    height: 340px;
-    width: calc(100% / 3 - 20px);
+    height: auto;
+    width: calc(100% / 4 - 20px); /* Adjusted width to fit four cards neatly */
     list-style: none;
     background: white;
     border-radius: 8px;
@@ -378,39 +361,59 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    padding: 20px;
+    padding: 10px;
+    z-index: 4; /* Ensure cards are above the left-half */
+    position: relative;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for clarity */
+    margin-right: 10px; /* Space between cards */
   }
 
   .card .img {
-    background: green;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
+    background: transparent;
+    width: 100%;
+    height: 150px; /* Fixed height to maintain consistency */
     margin-bottom: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden; /* Crop overflowing parts of the image */
+    border-radius: 8px; /* Rounded corners for images */
   }
 
   .card .img img {
-    width: 50px;
-    height: 50px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 2px solid #fff;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure the image covers the container without distortion */
   }
 
   .card h2 {
-    font-weight: 500;
-    font-size: 1.2rem;
+    font-weight: bold;
+    font-size: 1rem;
     margin-bottom: 5px;
-    align-self: flex-start;
+    text-align:center; /* Center-align the text */
   }
 
   .card span {
     color: #6a6d78;
-    font-size: 1rem;
-    align-self: flex-start;
+    font-size: 0.9rem;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  .slider {
+    display: flex;
+    gap: 10px; /* Adjust the gap between cards */
+    transition: transform 0.5s ease-in-out;
+    position: relative;
+    z-index: 4; /* Place it above the left-half */
+    overflow: visible; /* Allow overlap */
+  }
+
+  .wrapper {
+    max-width: 1100px;
+    width: 100%;
+    overflow: hidden; /* Ensure the slider does not spill out */
+    position: relative;
   }
 
   /* Bottom Section */
@@ -433,3 +436,106 @@ body {
     max-width: 80%;
     line-height: 1.5;
   }
+  
+  .overlay {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  display: none; /* Initially hide all overlays */
+  position: fixed;
+  top: 100px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white; /* Semi-transparent background */
+  color: black;
+  z-index: 10;
+  padding: 50px;
+  overflow-y: auto; /* Allow scrolling for large content */
+}
+.overlay .close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: black;
+  font-size: 3rem;
+  cursor: pointer;
+}
+.close-btn:hover{
+  color: grey;
+}
+
+/* Close button styling */
+.close-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  align-self: flex-end;
+}
+
+/* Content container (text and image side by side) */
+.content-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin-bottom: 20px; /* Add space between content and list */
+}
+
+.text-content {
+  flex: 1;
+  padding-right: 20px; /* Space between text and image */
+}
+
+.image-content {
+  flex: 1;
+  text-align: center;
+}
+
+.image-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* List container (at the bottom) */
+.lists {
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.lists h2 {
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.lists ul {
+  list-style: disc;
+  padding-left: 20px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .content-container {
+    flex-direction: column; /* Stack text and image */
+    align-items: center;
+  }
+
+  .text-content {
+    padding-right: 0;
+    margin-bottom: 20px; /* Space between text and image */
+  }
+
+  .lists ul {
+    padding-left: 10px;
+  }
+}

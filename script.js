@@ -69,17 +69,28 @@ document.addEventListener('DOMContentLoaded', function () {
     setActiveLink();
 });
 
-//services offered
 const slider = document.querySelector(".slider");
     const cards = Array.from(document.querySelectorAll(".card"));
     const cardWidth = cards[0].offsetWidth + 16; // Card width + gap
     let currentIndex = 0;
+    let slideInterval;
 
-    
+    // Function to start the sliding
+    function startSliding() {
+        slideInterval = setInterval(slideCards, 3000);
+    }
+
+    // Function to stop the sliding
+    function stopSliding() {
+        clearInterval(slideInterval);
+    }
+
+    // Duplicate cards to make the slider seamless
     cards.forEach(card => {
         const clone = card.cloneNode(true);
         slider.appendChild(clone);
     });
+
     function slideCards() {
         currentIndex++;
 
@@ -95,6 +106,38 @@ const slider = document.querySelector(".slider");
             }, 500); // Wait for the sliding transition to complete
         }
     }
+    // Event listeners to pause and resume sliding on hover
+    cards.forEach(card => {
+        card.addEventListener('mouseover', stopSliding);
+        card.addEventListener('mouseout', startSliding);
+    });
 
-    // Slide cards every 3 seconds
-    setInterval(slideCards, 3000);
+    // Start the sliding when the page loads
+    startSliding();
+
+    const detailElements = document.querySelectorAll('.details');
+const overlays = document.querySelectorAll('.overlay');
+const verticalNav = document.querySelector('#cd-vertical-nav'); // Select the vertical navigation element
+
+// Show overlay on click
+detailElements.forEach(detail => {
+  detail.addEventListener('click', () => {
+    const index = detail.getAttribute('data-index');
+    const overlay = document.getElementById(`overlay-${index}`);
+    overlay.style.display = 'flex'; // Display the overlay
+    if (verticalNav) {
+      verticalNav.style.display = 'none'; // Hide the vertical navigation
+    }
+  });
+});
+
+// Close overlay on click
+overlays.forEach(overlay => {
+  const closeBtn = overlay.querySelector('.close-btn');
+  closeBtn.addEventListener('click', () => {
+    overlay.style.display = 'none'; // Hide the overlay
+    if (verticalNav) {
+      verticalNav.style.display = ''; // Show the vertical navigation (default display)
+    }
+  });
+});
