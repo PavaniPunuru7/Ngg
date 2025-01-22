@@ -244,7 +244,7 @@ transform: translateY(-50%);  /* Adjust for perfect centering */
 body {
     padding-top: 100px;
     margin: 0;
-    transition: all 0.4s ease; /* Transition for all properties */
+    /* transition: all 0.4s ease; Transition for all properties */
 }
 .contactbg{
     background-color:rgb(67, 113, 67);
@@ -307,7 +307,7 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
+  } 
 
   body {
     font-family: Arial, sans-serif;
@@ -539,4 +539,313 @@ body {
   .lists ul {
     padding-left: 10px;
   }
+}
+
+
+
+/*About page*/
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&display=swap");
+
+:root {
+  --font-family: "Inter", sans-serif;
+  --background: white;
+  --sectiontitle: #333333;
+  --carousel-main-color: #6Ca311; 
+  --rotate-speed: 50;
+  --count: 5; 
+  --easeInOutSine: cubic-bezier(0.37, 0, 0.63, 1);
+  --easing: cubic-bezier(0.000, 0.37, 1.000, 0.63);
+}
+  
+  
+  #impact {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0 auto;
+    max-width: 1100px;
+    padding: 20px;
+    padding-bottom: 90px;
+  }
+
+
+  body {
+    margin: 0;
+  }
+
+  .carousel-section {
+    padding: 20px;
+  }
+
+  .carousel-section .void {
+    width: 100%;
+    max-width: 1100px;
+    margin: auto;
+    position: relative;
+    aspect-ratio: 1 / 1;
+  }
+
+  .carousel-section ul:hover * {
+    animation-play-state: paused;
+  }
+
+  .carousel-section ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    z-index: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+  }
+
+  .carousel-section li {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    animation: rotateCW calc(var(--rotate-speed) * 1s) var(--easing) infinite;
+    flex: 1 1 300px;
+    margin: 0 10px;
+  }
+
+
+  .carousel-section .cards {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px 24px;
+    gap: 5px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1), 0px 16px 32px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 450;
+    font-size: 16px;
+    line-height: 20px;
+    color: #535062;
+    animation: rotateCCW calc(var(--rotate-speed) * 1s) var(--easing) infinite;
+    backface-visibility: hidden; 
+  }
+
+  .carousel-section a {
+    text-decoration: none;
+    color: unset;
+  }
+
+  .carousel-section .model-name {
+    font-weight: 500;
+    font-size: 19px;
+    line-height: 150%;
+    color: var(--carousel-main-color);
+    display: block;
+  }
+
+  .carousel-section svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+  }
+
+  .carousel-section li:nth-child(2), li:nth-child(2) .cards {
+    animation-delay: calc((var(--rotate-speed)/var(--count)) * -1s);
+  }
+
+  .carousel-section li:nth-child(3), li:nth-child(3) .cards {
+    animation-delay: calc((var(--rotate-speed)/var(--count)) * -2s);
+  }
+
+  .carousel-section li:nth-child(4), li:nth-child(4) .cards {
+    animation-delay: calc((var(--rotate-speed)/var(--count)) * -3s);
+  }
+
+  .carousel-section li:nth-child(5), li:nth-child(5) .cards {
+    animation-delay: calc((var(--rotate-speed)/var(--count)) * -4s);
+  }
+
+
+  @keyframes rotateCW {
+    from {
+      transform: translate3d(0px, -50%, -1px) rotate(-45deg);
+    }
+    to {
+      transform: translate3d(0px, -50%, 0px) rotate(-315deg);
+    }
+  }
+
+  @keyframes rotateCCW {
+    from {
+      transform: rotate(45deg);
+    }
+    to {
+      transform: rotate(315deg);
+    }
+  }
+
+
+  .carousel-section .second-circle {
+    position: absolute;
+    width: 30%;
+    aspect-ratio: 1 / 1;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--background);
+    opacity: 0.5;
+    box-shadow: 0px 18px 36px -18px rgba(108, 163, 17, 0.3), 0px 30px 60px -12px rgba(108, 163, 17, 0.25);
+    border-radius: 50%;
+  }
+
+  .carousel-section .last-circle {
+    position: absolute;
+    width: 66%;
+    aspect-ratio: 1 / 1;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--background);
+    opacity: 0.25;
+    box-shadow: 0px 18px 36px -18px rgba(108, 163, 17, 0.3), 0px 30px 60px -12px rgba(108, 163, 17, 0.25);
+    border-radius: 50%;
+  }
+
+  .carousel-section .mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 54%;
+    animation: pulseGlow 5s linear infinite alternate;
+    background-size: auto 85%;
+    background-position: -40% 50%;
+    background-repeat: no-repeat;
+    background-image: url("ngg_about.jpg"); 
+  }
+
+  .carousel-section .mask:after {
+    content: "";
+    position: absolute;
+    width: 0px;
+    height: 100%;
+    right: 0;
+    display: block;
+    background-image: linear-gradient(180deg, rgba(60, 26, 229, 0) 0%, #8FC827 50%, rgba(60, 26, 229, 0) 100%);
+  }
+
+  @keyframes pulseGlow {
+    from {
+      transform: translate3d(-100%, 0, 0);
+    }
+    to {
+      transform: translate3d(0%, 0, 0);
+    }
+  }
+
+
+@media (max-width: 900px) {
+  .carousel-section {
+    position: relative;
+    width: 100vw;
+    height: 100vh; 
+    background-image: url('ngg_about.jpg'); 
+    background-size: contain; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+  }
+  
+  .carousel-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+
+  
+
+  #card-list {
+    display: flex;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+
+#card-list li {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  animation: fade 40s infinite; 
+  animation-play-state: running;
+  z-index: 10;
+  transition: transform 0.3s ease;
+}
+
+/* Pause animation on hover */
+#card-list:hover li {
+  animation-play-state: paused;
+}
+
+
+.carousel-section .cards:hover {
+  animation-play-state: paused;
+}
+
+#card-list li:nth-child(1) { animation-delay: 0s; }
+#card-list li:nth-child(2) { animation-delay: 8s; } 
+#card-list li:nth-child(3) { animation-delay: 16s; }
+#card-list li:nth-child(4) { animation-delay: 24s; }
+#card-list li:nth-child(5) { animation-delay: 32s; }
+
+@keyframes fade {
+  0% { opacity: 0; }
+  5% { opacity: 1; }
+  20% { opacity: 1; }
+  30% { opacity: 0; }
+}
+
+  .carousel-section .cards {
+    padding: 16px 24px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1), 0px 16px 32px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: #535062;
+    width: 100%; 
+    max-width: 300px; 
+    height: auto; 
+    margin: 0 10px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .carousel-section .model-name {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 150%;
+    color: var(--carousel-main-color); 
+    display: block;
+  }
+
 }
