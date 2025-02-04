@@ -8,7 +8,7 @@ html {
     width: 250px;
 }
 
-/* Navbar adjustments */
+/* 
 .navBar {
     display: flex;
     flex-direction: row;
@@ -23,13 +23,11 @@ html {
     padding: 5px 20px;
 }
 
-/* Navbar links with reduced spacing */
 .nav_section {
     display: flex;
     gap: 15px;
 }
 
-/* Default nav item style */
 .nav_section a {
     color: grey;
     text-decoration: none;
@@ -38,9 +36,19 @@ html {
     transition: color 0.3s, text-decoration 0.3s;
 }
 
+
 .nav-link {
     position: relative; 
 }
+
+.navbar .nav-link {
+  font-family: 'Roboto', sans-serif;
+  font-style: italic; 
+}
+
+
+
+
 
 .nav-link.active {
     color: black;
@@ -57,6 +65,119 @@ html {
   }
   
   
+ */
+
+
+ .navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  z-index: 1000;
+  box-shadow: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+
+.container-fluid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.navbar-brand {
+  font-size: 1.8rem;
+  color: grey;
+  margin-right: 90px;
+  margin-left: 70px; 
+
+  transition: all 0.3s ease;
+}
+
+.navbar-nav {
+  display: flex;
+  justify-content: right;
+  align-items: right;
+  width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.navbar-nav .nav-item {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.navbar-nav .nav-link {
+  font-size: 1rem;
+  color: grey;
+  transition: all 0.3s ease;
+}
+
+.navbar-nav .nav-link, .navbar-brand {
+  transition: color 0.3s ease, font-size 0.3s ease;
+}
+
+.navbar-nav .nav-item .nav-link {
+  position: relative;
+  color: grey;
+  text-decoration: none;
+}
+
+.navbar-nav .nav-item .nav-link.active {
+  color: black;
+}
+
+.navbar-nav .nav-item .nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px; 
+  left: 0;
+  width: 100%;
+  height: 2px; 
+  background-color: green;
+}
+
+/* Reduce navbar height */
+.navbar {
+  padding: 5px;
+  height: 65px;
+  display: flex;
+  align-items: center;
+}
+
+/* Adjust logo size */
+.logoImage {
+  height: 100px;
+  width: 180px;
+}
+
+/* Center and space navbar links */
+.navbar-nav {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-nav .nav-item {
+  margin: 0 10px;
+}
+
+/* Change hover color to grey */
+.navbar-nav .nav-link {
+  color: grey;
+  transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+  color: darkgrey !important; /* Use !important to override other styles */
+}
+
+
 
 
 /* Carousel image adjustments */
@@ -79,11 +200,11 @@ html {
     background-size:cover;
     height:75vh;
 }
-.carousel3{
+/* .carousel3{
     background-image:url("Home_bgImage3.jpg");
     background-size:cover;
     height:75vh;
-}
+} */
 /* Custom Previous and Next buttons */
 /* Hide navigation buttons by default */
 .carousel-control-prev,
@@ -179,8 +300,8 @@ transform: translateY(-50%);  /* Adjust for perfect centering */
   }
   
   #cd-vertical-nav .cd-dot {
-    width: 40px;
-    height: 1.8px;
+    width: 45px;
+    height: 2.4px;
     background-color: darkgreen;
     border-radius: 0;
     position: relative;
@@ -247,7 +368,7 @@ body {
     /* transition: all 0.4s ease; Transition for all properties */
 }
 .contactbg{
-    background-color:rgb(67, 113, 67);
+    background-color:rgb(6, 71, 6);
     color:white;
     padding:40px;
 }
@@ -310,7 +431,7 @@ body {
   } 
 
   body {
-    font-family: Arial, sans-serif;
+    /* font-family: Arial, sans-serif; */
     display: flex;
     flex-direction: column;
     min-height: 100vh; /* Ensure the page fills the viewport height */
@@ -339,7 +460,7 @@ body {
 
   .left-half {
     flex: 1; /* Set the width for the left half */
-    background-color: rgb(67, 113, 67);
+    background-color: rgb(6, 71, 6);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -348,6 +469,7 @@ body {
     font-weight: bold;
     z-index: 1; /* Place it behind the cards */
     overflow: visible; /* Allow overlap */
+    color: white;
   }
   
   .card {
@@ -551,7 +673,7 @@ body {
   --font-family: "Inter", sans-serif;
   --background: white;
   --sectiontitle: #333333;
-  --carousel-main-color: #6Ca311; 
+  --carousel-main-color: #42640b; 
   --rotate-speed: 50;
   --count: 5; 
   --easeInOutSine: cubic-bezier(0.37, 0, 0.63, 1);
