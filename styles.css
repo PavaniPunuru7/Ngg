@@ -1,72 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;700&display=swap');
+
 html {
     scroll-behavior: smooth;
   }
 
-/* Reduced logo size */
-.logoImage {
-    height: 100px;
-    width: 250px;
+body {
+  font-family: 'Fira Sans', sans-serif;
 }
 
-/* 
-.navBar {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background-color: white;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-    padding: 5px 20px;
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-weight: bold;
 }
-
-.nav_section {
-    display: flex;
-    gap: 15px;
+.model-name {
+  font-family: 'Merriweather', serif;
 }
-
-.nav_section a {
-    color: grey;
-    text-decoration: none;
-    font-weight: bold;
-    padding: 5px 8px;
-    transition: color 0.3s, text-decoration 0.3s;
-}
-
-
-.nav-link {
-    position: relative; 
-}
-
-.navbar .nav-link {
-  font-family: 'Roboto', sans-serif;
-  font-style: italic; 
-}
-
-
-
-
-
-.nav-link.active {
-    color: black;
-}
-
-.nav-link.active::after {
-    content: '';
-    position: absolute;
-    bottom: -1px; 
-    left: 0;
-    width: 100%;
-    height: 3px; 
-    background-color: green;
-  }
-  
-  
- */
-
 
  .navbar {
   position: fixed;
@@ -80,6 +30,12 @@ html {
   justify-content: center;
   align-items: center;
   
+}
+
+.navbar-nav .nav-link,
+.navbar-brand {
+  font-family: 'Merriweather', serif;
+  font-weight: bold;
 }
 
 
@@ -143,7 +99,6 @@ html {
   background-color: green;
 }
 
-/* Reduce navbar height */
 .navbar {
   padding: 5px;
   height: 65px;
@@ -151,13 +106,11 @@ html {
   align-items: center;
 }
 
-/* Adjust logo size */
 .logoImage {
   height: 100px;
   width: 180px;
 }
 
-/* Center and space navbar links */
 .navbar-nav {
   display: flex;
   align-items: center;
@@ -167,14 +120,13 @@ html {
   margin: 0 10px;
 }
 
-/* Change hover color to grey */
 .navbar-nav .nav-link {
   color: grey;
   transition: color 0.3s ease;
 }
 
 .navbar-nav .nav-link:hover {
-  color: darkgrey !important; /* Use !important to override other styles */
+  color: darkgrey !important; 
 }
 
 
@@ -213,23 +165,21 @@ opacity: 0;
 transition: opacity 0.3s ease;
 }
 
-/* Show buttons when hovering over the carousel */
 .carousel:hover .carousel-control-prev,
 .carousel:hover .carousel-control-next {
 opacity: 1;
 }
 
-/* Smaller square buttons */
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
 background-color: transparent;
 border: 2px solid black;
-width: 35px;  /* Reduced size */
-height: 35px; /* Reduced size */
+width: 35px;  
+height: 35px; 
 display: flex;
 align-items: center;
 
-font-size: 10px; /* Reduced arrow size */
+font-size: 10px; 
 color: white;
 border-radius: 5px;
 }
@@ -259,8 +209,8 @@ background-color: rgba(0, 0, 0, 0.8);
 .carousel-control-next {
 opacity: 0;
 transition: opacity 0.3s ease;
-top: 50%;  /* Vertically center */
-transform: translateY(-50%);  /* Adjust for perfect centering */
+top: 50%;  
+transform: translateY(-50%);  
 }
 
 
