@@ -29,7 +29,7 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  
+  margin-bottom: -200px;
 }
 
 .navbar-nav .nav-link,
@@ -101,13 +101,13 @@ h1 {
 
 .navbar {
   padding: 5px;
-  height: 65px;
+  height: 75px;
   display: flex;
   align-items: center;
 }
 
 .logoImage {
-  height: 100px;
+  height: 120px;
   width: 180px;
 }
 
@@ -129,89 +129,101 @@ h1 {
   color: darkgrey !important; 
 }
 
+    .carousel-item {
+        height: 85vh;
+        position: relative;
+    }
+
+    .carousel1, .carousel2 {
+        background-image: url("bg2_4_1.png");
+        background-size: cover;
+        background-position: center;
+        height: 90vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+
+    /* Text Overlay */
+    .overlay-text {
+      position: absolute;
+      top: 30%;
+      left: 40%;
+      transform: translate(-50%, -50%);
+      text-align: left;
+      color: white;
+      z-index: 2;
+      width: 60%;
+      max-width: 1000px;
+  }
+  
+  /* Position title separately */
+  .overlay-text .title {
+      position: relative;
+      left: 0%;
+      font-size: 3em;
+      font-weight: bold;
+      font-family: 'Merriweather', serif;
+  font-weight: bold;
+  }
+  
+  /* Position paragraph separately */
+  .overlay-text .desc {
+      position: relative;
+      left: 10%; /* Move the text slightly to the right */
+      font-size: 2rem;
+      padding-top:20px;
+      
+  }
+  
+    .foreground {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(6, 18, 6, 0.4); /* Black overlay with 60% transparency */
+      z-index: 1;
+  }
 
 
+    /* Navigation Button Styles */
 
-/* Carousel image adjustments */
-.carousel-item {
-    height: 75vh;
+.carousel-control-prev {
+  position: absolute;
+  left: 0%; /* Move it further left */
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 1;
 }
 
-.carousel-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-.carousel1{
-    background-image:url("Home_bgImage1.jpg");
-    background-size:cover;
-    height:80vh;
-}
-.carousel2{
-    background-image:url("Home_bgImage2.jpg");
-    background-size:cover;
-    height:75vh;
-}
-/* .carousel3{
-    background-image:url("Home_bgImage3.jpg");
-    background-size:cover;
-    height:75vh;
-} */
-/* Custom Previous and Next buttons */
-/* Hide navigation buttons by default */
-.carousel-control-prev,
 .carousel-control-next {
-opacity: 0;
-transition: opacity 0.3s ease;
+  position: absolute;
+  right: 0%; /* Move it further right */
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 1;
 }
 
-.carousel:hover .carousel-control-prev,
-.carousel:hover .carousel-control-next {
-opacity: 1;
-}
-
+/* Adjust button sizes and styling */
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
-background-color: transparent;
-border: 2px solid black;
-width: 35px;  
-height: 35px; 
-display: flex;
-align-items: center;
-
-font-size: 10px; 
-color: white;
-border-radius: 5px;
+ 
+  width: 50px;  /* Bigger width */
+  height: 50px; /* Bigger height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Remove default Bootstrap icons */
-.carousel-control-prev-icon::after,
-.carousel-control-next-icon::after {
-content: '';
-display: none;
-}
-
-/* Custom arrow symbols */
-.carousel-control-prev-icon {
-content: '<';
-}
-
-.carousel-control-next-icon {
-content: '>';
-}
-
-/* Hover effect for buttons */
-.carousel-control-prev:hover .carousel-control-prev-icon,
-.carousel-control-next:hover .carousel-control-next-icon {
-background-color: rgba(0, 0, 0, 0.8);
-}
+/* Ensure they are always visible */
 .carousel-control-prev,
 .carousel-control-next {
-opacity: 0;
-transition: opacity 0.3s ease;
-top: 50%;  
-transform: translateY(-50%);  
+  width: 5%; /* Adjust width to allow clicks on edges */
 }
+
+
 
 
 
@@ -313,7 +325,7 @@ transform: translateY(-50%);
 /* Container for the horizontal lines */
 /*uced body padding to align content */
 body {
-    padding-top: 100px;
+    padding-top:65px;
     margin: 0;
     /* transition: all 0.4s ease; Transition for all properties */
 }
