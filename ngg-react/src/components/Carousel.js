@@ -1,4 +1,6 @@
 import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
 const Carousel = ({ onNavClick }) => {
   return (
@@ -15,11 +17,16 @@ const Carousel = ({ onNavClick }) => {
           <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></li>
         </ol>
 
+        {/* Background Image */}
+        <div className="carousel-bg">
+          <div className="foreground"></div>
+        </div>
+
+        {/* Carousel Items */}
         <div className="carousel-inner">
           {/* First Slide */}
           <div className="carousel-item active">
             <div className="carousel1">
-              <div className="foreground"></div>
               <div className="overlay-text">
                 <h2 className="title">Our Motto</h2>
                 <p className="desc">
@@ -28,9 +35,10 @@ const Carousel = ({ onNavClick }) => {
               </div>
               <div className="side-lines">
                 <button className="line" onClick={() => onNavClick("home")} data-text="Home"></button>
-                <button className="line" onClick={() => onNavClick("about")} data-text="About Us"></button>
+                <button className="line" onClick={() => onNavClick("products")} data-text="Products"></button>
                 <button className="line" onClick={() => onNavClick("services")} data-text="Services Offered"></button>
-                <button className="line" onClick={() => onNavClick("career")} data-text="Career"></button>
+                <button className="line" onClick={() => onNavClick("testimonials")} data-text="Testimonials"></button>
+                <button className="line" onClick={() => onNavClick("about")} data-text="About Us"></button>
                 <button className="line" onClick={() => onNavClick("contact")} data-text="Contact Us"></button>
               </div>
             </div>
@@ -39,7 +47,6 @@ const Carousel = ({ onNavClick }) => {
           {/* Second Slide */}
           <div className="carousel-item">
             <div className="carousel2">
-              <div className="foreground"></div>
               <div className="overlay-text">
                 <h2 className="title">Vision</h2>
                 <p className="desc">
@@ -47,10 +54,11 @@ const Carousel = ({ onNavClick }) => {
                 </p>
               </div>
               <div className="side-lines">
-                <button className="line" onClick={() => onNavClick("home")} data-text="Home"></button>
-                <button className="line" onClick={() => onNavClick("about")} data-text="About Us"></button>
+              <button className="line" onClick={() => onNavClick("home")} data-text="Home"></button>
+                <button className="line" onClick={() => onNavClick("products")} data-text="Products"></button>
                 <button className="line" onClick={() => onNavClick("services")} data-text="Services Offered"></button>
-                <button className="line" onClick={() => onNavClick("career")} data-text="Career"></button>
+                <button className="line" onClick={() => onNavClick("testimonials")} data-text="Testimonials"></button>
+                <button className="line" onClick={() => onNavClick("about")} data-text="About Us"></button>
                 <button className="line" onClick={() => onNavClick("contact")} data-text="Contact Us"></button>
               </div>
             </div>

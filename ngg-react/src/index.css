@@ -79,7 +79,7 @@ h1 {
   transition: width 0.3s ease-in-out;
 }
 .logoImage {
-  height: 80px; /* Adjust this as needed */
+  height:140px; /* Adjust this as needed */
   width: auto;
   max-width: 100%;
   
@@ -124,156 +124,130 @@ h1 {
 
 
 
-    .carousel-item {
-        height: 90vh;
-        position: relative;
-    }
+/* Carousel Container */
+/* Carousel Container */
+.carousel {
+  overflow: hidden;
+  position: relative;
+  height: 90vh;
+}
 
-    .carousel1, .carousel2 {
-        background-image: url("./assets/bg1.png");
-        background-size: cover;
-        background-position: center;
-        height: 90vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: relative;
-    }
+/* Fixed Background Image */
+.carousel-bg {
+  background-image: url("./assets/bg1.png");
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 90vh;
+  position: absolute; /* Changed to absolute */
+  top: 0;
+  left: 0;
+  z-index: 0; /* Background at the bottom */
+}
 
-    /* Text Overlay */
-    .overlay-text {
-      position: absolute;
-      top: 40%;
-      left: 40%;
-      transform: translate(-50%, -50%);
-      text-align: left;
-      color: white;
-      z-index: 2;
-      width: 60%;
-      max-width: 1000px;
-  }
-  
-  /* Position title separately */
-  .overlay-text .title {
-      position: relative;
-      left: 0%;
-      font-size: 3em;
-      font-weight: bold;
-      font-family: 'Merriweather', serif;
-  font-weight: bold;
-  }
-  
-  /* Position paragraph separately */
-  .overlay-text .desc {
-      position: relative;
-      left: 10%; /* Move the text slightly to the right */
-      font-size: 2rem;
-      padding-top:20px;
-      
-  }
-  
-    .foreground {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(6, 18, 6, 0.4); /* Black overlay with 60% transparency */
-      z-index: 1;
-  }
-
-
-    /* Navigation Button Styles */
-
-.carousel-control-prev {
+/* Foreground Overlay */
+.foreground {
   position: absolute;
-  left: 0%; /* Move it further left */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(6, 18, 6, 0.4); /* Black overlay with 60% transparency */
+  z-index: 1; /* Foreground above the background */
+}
+
+/* Carousel Inner Container */
+.carousel-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 2; /* Carousel content above the foreground */
+}
+
+/* Carousel Items */
+.carousel-item {
+  position: absolute; /* Position items absolutely */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: transform 1s ease-in-out; /* Smooth sliding transition */
+}
+
+/* Slide to the left */
+.carousel-item.active {
+  transform: translateX(0); /* Active slide is in view */
+}
+
+/* Slide out to the left */
+.carousel-item-next,
+.carousel-item-prev {
+  transform: translateX(100%); /* Inactive slides are out of view */
+}
+
+/* Slide in from the right */
+.carousel-item-next.carousel-item-left,
+.carousel-item-prev.carousel-item-right {
+  transform: translateX(0); /* Slide in from the right */
+}
+
+/* Slide out to the left */
+.carousel-item-left,
+.carousel-item-prev.carousel-item-right {
+  transform: translateX(-100%); /* Slide out to the left */
+}
+
+/* Text Overlay */
+.overlay-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  z-index: 3; /* Text above everything */
+  width: 60%;
+  max-width: 1000px;
+}
+
+.overlay-text .title {
+  font-size: 3em;
+  font-weight: bold;
+  font-family: 'Merriweather', serif;
+}
+
+.overlay-text .desc {
+  font-size: 2rem;
+  padding-top: 20px;
+}
+
+/* Navigation Buttons */
+.carousel-control-prev,
+.carousel-control-next {
+  position: absolute;
   top: 50%;
   transform: translateY(-50%);
+  width: 4%;
   opacity: 1;
+  z-index: 4; /* Buttons above everything */
+}
+
+.carousel-control-prev {
+  left: 0;
 }
 
 .carousel-control-next {
-  position: absolute;
-  right: 0%; /* Move it further right */
-  top: 50%;
-  transform: translateY(-50%);
-  opacity: 1;
+  right: 0;
 }
 
-/* Adjust button sizes and styling */
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
- 
-  width: 35px;  /* Bigger width */
-  height: 35px; /* Bigger height */
+  width: 35px;
+  height: 35px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
-/* Ensure they are always visible */
-.carousel-control-prev,
-.carousel-control-next {
-  width: 4%; /* Adjust width to allow clicks on edges */
-}
-
-
-.carousel {
-  overflow: hidden; /* Prevent overflow during transitions */
-  position: relative;
-}
-
-.carousel-inner {
-  display: flex;
-  width: 100%;
-  overflow: hidden; /* Prevents white background flicker */
-}
-
-.carousel-item {
-  flex: 0 0 100%;
-  width: 100%;
-  transition: transform 0.5s ease-in-out;
-}
-
-.carousel {
-  overflow: hidden; /* Prevent overflow during transitions */
-  position: relative;
-}
-
-.carousel-inner {
-  display: flex;
-  width: 100%;
-  overflow: hidden; /* Prevents white background flicker */
-  position: relative; /* Ensures proper positioning */
-}
-
-.carousel-item {
-  flex: 0 0 100%;
-  width: 100%;
-  transition: transform 0.5s ease-in-out;
-  position: absolute; /* Ensure slides stack properly */
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  opacity: 0; /* Hide inactive slides */
-  visibility: hidden;
-}
-
-.carousel-item.active {
-  opacity: 1;
-  visibility: visible;
-  position: relative; /* Ensures active slide is visible */
-}
-
-
-
-
-
-
-
-
 /* Side navigation container */
 #cd-vertical-nav {
   position: fixed;
@@ -377,6 +351,91 @@ h1 {
     justify-content:space-around;
     
 }
+.name_phone{
+  display:flex;
+  flex-direction:row;
+  justify-content:space-between;
+  color:beige;
+  margin:10px;
+}
+.location_email{
+  display:flex;
+flex-direction:row;
+justify-content:space-between;
+color:beige;
+margin:10px;
+}
+.name_phone input,
+.location_email input {
+  color: beige;
+  background-color: transparent; /* Optional: Ensures the input background doesn't hide the text */
+ /* Optional: If you want visible borders */
+}
+.pencil input{
+  color: beige;
+  background-color: transparent;
+}
+
+/* Underlined Input Styles */
+.underline-input_contact,
+.underline-input_contact2 {
+  border: none; /* Remove default border */
+  border-bottom: 1px solid grey; /* Add bottom border (underline) */
+  outline: none; /* Remove outline on focus */
+  background: transparent; /* Make background transparent */
+  width: 100%; /* Full width */
+  padding-left: 10px; /* Add some padding for the icon */
+  font-size: 1rem; /* Adjust font size */
+}
+
+.underline-input_contact2 {
+  width: 100%; /* Full width for the larger input */
+}
+.contact_head{
+  margin-left:30px;
+}
+/* Icon Alignment */
+.email_name,
+.phone_subject,
+.pencil {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; /* Add spacing between inputs */
+  padding:10px;
+}
+
+.email_name div,
+.phone_subject div,
+.pencil div {
+  display: flex;
+  align-items: center;
+  width: 100%; /* Full width for each input container */
+}
+
+/* Checkbox and Button Styles */
+input[type="checkbox"] {
+  margin-right: 10px;
+  margin-left:40px; /* Add spacing between checkbox and label */
+  height:20px;
+  width:20px;
+}
+
+.more_details_btn {
+  background-color: orange; /* Button background color */
+  color: white; /* Button text color */
+  border: none; /* Remove border */
+  padding: 10px 20px; /* Add padding */
+  cursor: pointer; /* Add pointer cursor */
+  font-size: 1rem; /* Adjust font size */
+  border-radius:5px;
+  margin-left:30px;
+}
+
+.more_details_btn:hover {
+  background-color: #0056b3; /* Darker background on hover */
+}
+/* Container Styling */
+
 
 
 /* Cursor Styles */

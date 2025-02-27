@@ -51,9 +51,12 @@ const Navbar = () => {
                     <ul className="navbar-nav">
                         {[
                             { id: "home", label: "Home" },
-                            { id: "about", label: "About Us" },
+
+                            { id: "products", label: "Products" },
                             { id: "services", label: "Services Offered" },
-                            { id: "career", label: "Career" },
+                            { id: "testimonials", label: "Testimonials" },
+                            
+                            { id: "about", label: "About Us" },
                             { id: "contact", label: "Contact Us" },
                         ].map((item) => (
                             <li className="nav-item" key={item.id}>

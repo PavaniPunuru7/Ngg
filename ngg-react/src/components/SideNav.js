@@ -12,9 +12,9 @@ const SideNav = () => {
           </a>
         </li>
         <li>
-          <a href="#about">
+          <a href="#products">
             <span className="cd-dot"></span>
-            <span className="cd-label"><b>About Us</b></span>
+            <span className="cd-label"><b>Products</b></span>
             <span className="data-badge"></span>
           </a>
         </li>
@@ -26,12 +26,21 @@ const SideNav = () => {
           </a>
         </li>
         <li>
-          <a href="#career">
+          <a href="#testimonials">
             <span className="cd-dot"></span>
-            <span className="cd-label"><b>Career</b></span>
+            <span className="cd-label"><b>Testimonials</b></span>
             <span className="data-badge"></span>
           </a>
         </li>
+        <li>
+          <a href="#about">
+            <span className="cd-dot"></span>
+            <span className="cd-label"><b>About Us</b></span>
+            <span className="data-badge"></span>
+          </a>
+        </li>
+        
+        
         <li>
           <a href="#contact">
             <span className="cd-dot"></span>
