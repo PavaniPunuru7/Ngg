@@ -99,7 +99,10 @@ const Services = () => {
    <>
      <section id="services" className="section">
        <div className="main-container">
-         <h1 className="left-half">Services <br /> Offered</h1>
+       <h1 className="left-half" style={{ fontSize: '3rem' }}>
+        Services <br /> Offered
+        </h1>
+
          <div className="right-half">
            <div className="wrapper">
              <ul

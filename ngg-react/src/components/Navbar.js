@@ -1,8 +1,11 @@
+// Navbar.js
 import React, { useEffect, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import logo from '../assets/ngg_logo.png';
 
-const Navbar = () => {
+const Navbar = ({ onNavClick }) => {
     const [activeSection, setActiveSection] = useState("");
+    const location = useLocation();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -27,10 +30,16 @@ const Navbar = () => {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-    // Close navbar when a nav link is clicked
+    useEffect(() => {
+        // Reset active section on route change (like when returning from plant details)
+        if (location.pathname === '/') {
+            setActiveSection("home");
+        }
+    }, [location.pathname]);
+
     const closeNavbar = () => {
         const navCollapse = document.querySelector(".navbar-collapse");
-        if (navCollapse.classList.contains("show")) {
+        if (navCollapse && navCollapse.classList.contains("show")) {
             navCollapse.classList.remove("show");
         }
     };
@@ -51,22 +60,23 @@ const Navbar = () => {
                     <ul className="navbar-nav">
                         {[
                             { id: "home", label: "Home" },
-
                             { id: "products", label: "Products" },
                             { id: "services", label: "Services Offered" },
-                            { id: "testimonials", label: "Testimonials" },
-                            
                             { id: "about", label: "About Us" },
+                            { id: "testimonials", label: "Testimonials" },
                             { id: "contact", label: "Contact Us" },
                         ].map((item) => (
                             <li className="nav-item" key={item.id}>
-                                <a
+                                <Link
+                                    to="/"
                                     className={`nav-link ${activeSection === item.id ? "active" : ""}`}
-                                    href={`#${item.id}`}
-                                    onClick={closeNavbar} // Close navbar when clicked
+                                    onClick={() => {
+                                        onNavClick(item.id);
+                                        closeNavbar();
+                                    }}
                                 >
                                     {item.label}
-                                </a>
+                                </Link>
                             </li>
                         ))}
                     </ul>
