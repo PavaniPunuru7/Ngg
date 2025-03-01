@@ -62,8 +62,8 @@ const Navbar = ({ onNavClick }) => {
                             { id: "home", label: "Home" },
                             { id: "products", label: "Products" },
                             { id: "services", label: "Services Offered" },
-                            { id: "about", label: "About Us" },
                             { id: "testimonials", label: "Testimonials" },
+                            { id: "about", label: "About Us" },
                             { id: "contact", label: "Contact Us" },
                         ].map((item) => (
                             <li className="nav-item" key={item.id}>

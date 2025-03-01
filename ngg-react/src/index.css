@@ -233,11 +233,11 @@ h1 {
 }
 
 .carousel-control-prev {
-  left: 0;
+  left: 50px;
 }
 
 .carousel-control-next {
-  right: 0;
+  right: 50px;
 }
 
 .carousel-control-prev-icon,
@@ -534,7 +534,6 @@ input[type="checkbox"] {
     font-size: 2rem;
     position: relative;
     font-weight: bold;
-    z-index: 1; /* Place it behind the cards */
     overflow: visible; /* Allow overlap */
     color: white;
   }
@@ -760,30 +759,30 @@ input[type="checkbox"] {
   }
 }
 
-/*About page*/
+/*Testimonials page*/
+
 
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&display=swap");
 
 :root {
   --font-family: "Inter", sans-serif;
-  --background: white;
+  --background: #F5F5F5;
   --sectiontitle: #333333;
-  --carousel-main-color: #42640b; 
+  --carousel-main-color: #6Ca311; 
   --rotate-speed: 50;
-  --count: 5; 
+  --count: 4; /* # items in carousel */
   --easeInOutSine: cubic-bezier(0.37, 0, 0.63, 1);
   --easing: cubic-bezier(0.000, 0.37, 1.000, 0.63);
 }
   
   
   #impact {
-    justify-content: center;
-    align-items: center;
+    justify-content: left;
+    align-items: left;
     flex-direction: column;
     margin: 0 auto;
-    max-width: 1100px;
-    padding: 20px;
-    padding-bottom: 90px;
+    max-width: 900px;
+    margin-left:170px;
   }
 
 
@@ -791,16 +790,13 @@ input[type="checkbox"] {
     margin: 0;
   }
 
-  .carousel-section {
-    padding: 20px;
-  }
-
   .carousel-section .void {
-    width: 100%;
-    max-width: 1100px;
+    width: 120%;
+    max-width: 1224px;
     margin: auto;
     position: relative;
     aspect-ratio: 1 / 1;
+    margin-top:-70px;
   }
 
   .carousel-section ul:hover * {
@@ -832,11 +828,12 @@ input[type="checkbox"] {
 
 
   .carousel-section .cards {
-    width: 30%;
+    width: 40%;
+    
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 16px 24px;
+    padding: 10px 20px;
     gap: 5px;
     background: #FFFFFF;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1), 0px 16px 32px rgba(0, 0, 0, 0.1);
@@ -844,17 +841,14 @@ input[type="checkbox"] {
     font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 450;
-    font-size: 16px;
-    line-height: 20px;
+    font-size: 15px;
+    line-height: 17px;
     color: #535062;
     animation: rotateCCW calc(var(--rotate-speed) * 1s) var(--easing) infinite;
     backface-visibility: hidden; 
   }
 
-  .carousel-section a {
-    text-decoration: none;
-    color: unset;
-  }
+  
 
   .carousel-section .model-name {
     font-weight: 500;
@@ -864,12 +858,7 @@ input[type="checkbox"] {
     display: block;
   }
 
-  .carousel-section svg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 100;
-  }
+ 
 
   .carousel-section li:nth-child(2), li:nth-child(2) .cards {
     animation-delay: calc((var(--rotate-speed)/var(--count)) * -1s);
@@ -905,7 +894,6 @@ input[type="checkbox"] {
       transform: rotate(315deg);
     }
   }
-
 
   .carousel-section .second-circle {
     position: absolute;
@@ -943,7 +931,7 @@ input[type="checkbox"] {
     background-size: auto 85%;
     background-position: -40% 50%;
     background-repeat: no-repeat;
-    background-image: url("./assets/ngg_about.jpg"); 
+    background-image: url("./assets/ngg_testimonial.png"); 
   }
 
   .carousel-section .mask:after {
@@ -967,11 +955,12 @@ input[type="checkbox"] {
 
 
 @media (max-width: 900px) {
+
   .carousel-section {
     position: relative;
     width: 100vw;
     height: 100vh; 
-    background-image: url('./assets/ngg_about.jpg'); 
+    background-image: url('./assets/ngg_testimonial.png'); 
     background-size: contain; 
     background-position: center; 
     background-repeat: no-repeat; 
@@ -985,7 +974,7 @@ input[type="checkbox"] {
     justify-content: center;
   }
 
-  
+ 
 
   #card-list {
     display: flex;
@@ -1025,10 +1014,10 @@ input[type="checkbox"] {
 }
 
 #card-list li:nth-child(1) { animation-delay: 0s; }
-#card-list li:nth-child(2) { animation-delay: 8s; } 
+#card-list li:nth-child(2) { animation-delay: 8s; }  
 #card-list li:nth-child(3) { animation-delay: 16s; }
 #card-list li:nth-child(4) { animation-delay: 24s; }
-#card-list li:nth-child(5) { animation-delay: 32s; }
+/* #card-list li:nth-child(5) { animation-delay: 32s; } */
 
 @keyframes fade {
   0% { opacity: 0; }
@@ -1066,6 +1055,20 @@ input[type="checkbox"] {
   }
 
 }
+
+.carousel-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.heading {
+  margin-bottom: 0; /* Remove gap between heading and carousel */
+}
+
+
 /* Updated Product and Plant Details Styles */
 
 /* Product page grid layout */
@@ -1213,4 +1216,34 @@ input[type="checkbox"] {
   .plant-list {
     grid-template-columns: 1fr;
   }
+}
+
+
+/* CallButton */
+.call-button {
+  position: fixed;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 60px;
+  height: 60px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 50%;
+  background-color: #0056b3; /* Orange */
+  color: white;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease-in-out;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.about_page {
+  margin-top:30px;
+  margin-left:120px;
+  margin-right: 80px;
+  margin-bottom: 80px;
 }

@@ -5,10 +5,12 @@ import Carousel from './components/Carousel';
 import SideNav from './components/SideNav';
 import Services from './components/Services';
 import About from './components/About';
+import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
 import Cursor from './components/Cursor';
 import Products from './components/Products';
 import PlantDetail from './components/PlantDetails';
+import CallButton from './components/CallButton';
 
 function App() {
     const location = useLocation();
@@ -51,8 +53,10 @@ function App() {
                             <div id="home"><Carousel onNavClick={handleScroll} /></div>
                             <div id="products"><Products /></div>
                             <div id="services"><Services /></div>
+                            <div id="testimonials"><Testimonials /></div>
                             <div id="about"><About /></div>
                             <div id="contact"><Contact /></div>
+                            <CallButton />
                         </>
                     }
                 />
