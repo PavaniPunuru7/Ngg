@@ -2,7 +2,7 @@ import React from 'react';
 
 const CallButton = () => {
     const handleCall = () => {
-        window.location.href = 'tel:+919182001052'; 
+        window.location.href = 'tel:+123456789';
     };
 
     return (
