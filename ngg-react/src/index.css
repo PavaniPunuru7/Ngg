@@ -489,61 +489,53 @@ input[type="checkbox"] {
 
 
 
-  
+/*----------Services offered-------------*/  
 
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  } 
 
-  body {
-    /* font-family: Arial, sans-serif; */
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* Ensure the page fills the viewport height */
-  }
-
-  .main-container {
-    display: flex;
-    flex: 1;
-    width: 100%;
-    position: relative;
-    overflow: hidden; /* Ensure content stays within bounds */
-  }
-
-  .right-half {
-    flex: 1.4; /* Larger width for the right half */
-    background-color: #e2d3d3;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    position: relative;
-    z-index: 3; /* Ensure it is above the left side */
-    margin-left: -150px; /* Increased negative margin for overlap */
-    padding: 90px 0px;
-  }
-
-  .left-half {
-    flex: 1.2; /* Set the width for the left half */
-    background-color: rgb(6, 71, 6);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2rem;
-    position: relative;
-    font-weight: bold;
-    overflow: visible; /* Allow overlap */
-    color: white;
-  }
- /* ✅ Main Slider Styling */
- .slider {
-  display: flex;
-  gap: 20px;
-  transition: transform 0.5s ease-in-out;
-  will-change: transform;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: row; /* Default: Side by side */
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.left-half {
+  flex: 1.2;
+  background-color: rgb(6, 71, 6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+  /* ✅ Right-Half (Slider Section) */
+.right-half {
+  flex: 1.4;
+  background-color: #e2d3d3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  padding: 90px 0px;
+}
+
+ 
 /* ✅ Wrapper to contain the slider */
 .wrapper {
   max-width: 1100px;
@@ -552,12 +544,21 @@ input[type="checkbox"] {
   position: relative;
 }
 
+/* ✅ Slider */
+.slider {
+  gap: 20px;
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  will-change: transform;
+}
+
 /* ✅ Individual Cards */
 .card {
   flex: 0 0 auto;
   width: 288px;
   height: 350px;
   margin-right: 8px;
+  margin-left:0px;
   background: white;
   padding: 10px;
   border-radius: 10px;
@@ -566,9 +567,8 @@ input[type="checkbox"] {
 
 /* ✅ Image Container */
 .card .img {
-  background: transparent;
   width: 100%;
-  height: 230px; /* Adjusted image height */
+  height: 230px;
   margin-bottom: 15px;
   display: flex;
   align-items: center;
@@ -581,9 +581,9 @@ input[type="checkbox"] {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  margin:10px;
-  border:solid rgb(6, 71, 6) 2px; 
-  border-radius:8px;
+  margin: 10px;
+  border: solid rgb(6, 71, 6) 2px;
+  border-radius: 8px;
 }
 
 /* ✅ Card Titles */
@@ -725,7 +725,7 @@ input[type="checkbox"] {
   .content-container {
     flex-direction: column;
     align-items: center;
-    padding-top: 0; /* Ensure no extra space */
+    padding-top: 10px; /* Ensure no extra space */
   }
 
   .text-content {
@@ -733,8 +733,44 @@ input[type="checkbox"] {
     padding: 10px;
   }
 }
+/* ✅ Mobile Responsive Layout (Phones Only) */
+@media (max-width: 480px) {
+  /* Stack sections vertically */
+  .main-container {
+    flex-direction: column;
+    align-items: center;
+  }
 
-@media (max-width: 768px) {
+  .left-half {
+    width: 100%;
+    font-size: 1.8rem; /* Slightly smaller font for mobile */
+    padding: 15px;
+  }
+
+  .right-half {
+    width: 100%;
+    padding: 15px 0;
+  }
+
+  /* ✅ Show one card at a time */
+  .wrapper {
+    max-width: 330px; /* Adjust width for mobile */
+  }
+
+  .slider {
+    gap: 20px; /* Remove extra spacing */
+  }
+
+  .card {
+    width: 288px; /* Full width for mobile */
+    height: auto;
+  }
+
+  .card .img {
+    height: 200px; /* Reduce image height for mobile */
+  }
+
+  /* ✅ Overlay Adjustments */
   .overlay {
     top: 50px;
     height: calc(100vh - 50px);
@@ -742,7 +778,7 @@ input[type="checkbox"] {
   }
 
   .text-content h1 {
-    font-size: 1.8rem;
+    font-size: 1.6rem; /* Adjust for better fit */
   }
 
   .text-content p {
@@ -751,7 +787,7 @@ input[type="checkbox"] {
 
   .lists {
     max-width: 100%;
-    margin-top: 5px; /* Further reduce space */
+    margin-top: 5px;
   }
 
   .lists ul {
